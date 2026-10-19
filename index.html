@@ -1,0 +1,1044 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Nouvelle Glisse — Location de ski au pied des pistes, Villard-de-Lans</title>
+<meta name="description" content="Location de skis, snowboards, raquettes et vélo-ski à Villard-de-Lans, Côte 2000, sous la télécabine du Pré des Preys. Réservez votre matériel en ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<script>
+  /* Si une photo locale (dossier images/) est absente, on charge la version en ligne. */
+  window.addEventListener('error', function (e) {
+    var t = e.target;
+    if (t && t.tagName === 'IMG' && t.dataset.remote && t.src !== t.dataset.remote) {
+      t.src = t.dataset.remote;
+    }
+  }, true);
+</script>
+<style>
+  :root {
+    --neige: #F4F6F7;
+    --glace: #E4EAEE;
+    --blanc: #FFFFFF;
+    --ardoise: #142230;
+    --ardoise-2: #1E3142;
+    --rouge: #D2232A;
+    --rouge-fonce: #AE1A20;
+    --brume: #56646F;
+    --trait: rgba(20, 34, 48, .13);
+    --verte: #1F9D57;
+    --bleue: #2563C9;
+    --noire: #142230;
+    --police: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --marge: clamp(18px, 4.5vw, 64px);
+    --max: 1240px;
+    --rayon: 6px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--neige); color: var(--ardoise); font-family: var(--police); font-size: 16.5px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  :focus-visible { outline: 3px solid var(--bleue); outline-offset: 2px; }
+  [hidden] { display: none !important; }
+  h1, h2, h3, h4 { margin: 0; font-stretch: 112%; font-weight: 800; letter-spacing: -0.02em; line-height: 1.02; }
+  h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); }
+  h3 { font-size: 1.3rem; letter-spacing: -0.01em; }
+  p { margin: 0 0 1em; }
+  .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--marge); }
+  .rouge { color: var(--rouge); }
+  .visuellement-cache { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 50px; padding: 0 24px; border-radius: var(--rayon);
+    font-weight: 700; font-size: 15.5px; font-stretch: 105%; text-decoration: none;
+    border: 2px solid transparent; cursor: pointer; transition: background .2s, border-color .2s, color .2s, transform .1s;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-rouge { background: var(--rouge); color: #fff; }
+  .btn-rouge:hover { background: var(--rouge-fonce); }
+  .btn-clair { background: rgba(255, 255, 255, .14); color: #fff; border-color: rgba(255, 255, 255, .55); backdrop-filter: blur(6px); }
+  .btn-clair:hover { background: rgba(255, 255, 255, .24); }
+  .btn-ligne { background: transparent; border-color: var(--ardoise); color: var(--ardoise); }
+  .btn-ligne:hover { background: var(--ardoise); color: #fff; }
+  .btn[disabled] { opacity: .45; cursor: not-allowed; }
+
+  /* ——— En-tête ——— */
+  .entete { position: fixed; inset: 0 0 auto 0; z-index: 50; color: #fff; transition: background .3s, color .3s, box-shadow .3s; }
+  .entete.defile { background: rgba(244, 246, 247, .96); color: var(--ardoise); box-shadow: 0 1px 0 var(--trait); backdrop-filter: blur(10px); }
+  .entete .wrap { display: flex; align-items: center; justify-content: space-between; height: 74px; max-width: none; }
+  .marque { font-weight: 800; font-stretch: 118%; font-size: 1.25rem; letter-spacing: -0.02em; text-decoration: none; white-space: nowrap; }
+  .marque b { color: var(--rouge); font-weight: 800; }
+  .nav { display: flex; align-items: center; gap: 30px; }
+  .nav a:not(.btn) { text-decoration: none; font-weight: 600; font-size: 15px; opacity: .92; }
+  .nav a:not(.btn):hover { opacity: 1; text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; }
+  .nav .btn { min-height: 42px; padding: 0 18px; }
+  .bouton-menu { display: none; background: none; border: 0; padding: 10px 0; font-weight: 700; cursor: pointer; color: inherit; }
+  @media (max-width: 920px) {
+    .nav { position: fixed; inset: 0; background: var(--ardoise); color: #fff; flex-direction: column; justify-content: center; gap: 24px; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
+    .nav.ouvert { opacity: 1; visibility: visible; }
+    .nav a:not(.btn) { font-size: 2rem; font-weight: 800; font-stretch: 115%; }
+    .bouton-menu { display: block; position: relative; z-index: 60; }
+    .menu-ouvert .entete { color: #fff; background: transparent; box-shadow: none; }
+    .menu-ouvert .marque { position: relative; z-index: 60; }
+  }
+
+  /* ——— Accueil ——— */
+  .accueil { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; color: #fff; overflow: hidden; }
+  .accueil .fond { position: absolute; inset: 0; }
+  .accueil .fond img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+  .accueil .fond::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 34, 48, .45) 0%, rgba(20, 34, 48, .05) 30%, rgba(20, 34, 48, .25) 55%, rgba(20, 34, 48, .88) 100%); }
+  .accueil .contenu { position: relative; padding-top: 140px; padding-bottom: 36px; }
+  .accueil h1 { font-size: clamp(3rem, 9.2vw, 8.4rem); font-stretch: 125%; font-weight: 850; line-height: .9; letter-spacing: -0.035em; max-width: 9.5em; margin-bottom: 26px; }
+  .accueil .sous { font-size: clamp(1.05rem, 1.5vw, 1.25rem); max-width: 34em; color: rgba(255, 255, 255, .92); margin-bottom: 34px; }
+  .acces-rapide { position: relative; background: var(--blanc); color: var(--ardoise); border-radius: 10px; padding: 18px; display: grid; grid-template-columns: 1.2fr 1.2fr 1fr auto; gap: 12px; align-items: end; box-shadow: 0 20px 50px rgba(0, 0, 0, .25); }
+  .acces-rapide label { display: block; font-size: 13px; font-weight: 700; color: var(--brume); margin-bottom: 6px; }
+  .champ { width: 100%; min-height: 50px; border: 1.5px solid var(--trait); border-radius: var(--rayon); background: var(--neige); padding: 0 14px; font-size: 16px; }
+  .champ:focus { border-color: var(--bleue); outline: none; box-shadow: 0 0 0 3px rgba(37, 99, 201, .18); }
+  textarea.champ { padding: 12px 14px; min-height: 90px; resize: vertical; }
+  @media (max-width: 860px) { .acces-rapide { grid-template-columns: 1fr 1fr; } .acces-rapide .btn { grid-column: 1 / -1; } }
+  @media (max-width: 480px) { .acces-rapide { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: no-preference) {
+    .accueil .fond img { animation: zoom 14s ease-out both; }
+    .accueil h1 { animation: glisse 1s .15s cubic-bezier(.2, .7, .1, 1) both; }
+    .accueil .sous, .accueil .actions-accueil { animation: apparait .8s .55s ease both; }
+    .acces-rapide { animation: monte .9s .7s cubic-bezier(.2, .7, .1, 1) both; }
+  }
+  @keyframes zoom { from { transform: scale(1.08); } to { transform: scale(1); } }
+  @keyframes glisse { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: none; } }
+  @keyframes apparait { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes monte { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+  .bandeau-atouts { background: var(--ardoise); color: #fff; }
+  .bandeau-atouts ul { list-style: none; margin: 0; padding: 22px 0; display: flex; flex-wrap: wrap; gap: 10px 40px; font-weight: 600; font-size: 15px; }
+  .bandeau-atouts li::before { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--rouge); border-radius: 50%; margin-right: 10px; vertical-align: 1px; }
+
+  section { padding: clamp(72px, 10vw, 130px) 0; }
+  .titre-section { display: flex; justify-content: space-between; align-items: end; gap: 28px; flex-wrap: wrap; margin-bottom: 44px; }
+  .titre-section p { max-width: 30em; color: var(--brume); margin: 0; }
+
+  /* ——— Pourquoi nous ——— */
+  .atouts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 2px solid var(--ardoise); }
+  .atouts article { padding: 28px 28px 8px 0; }
+  .atouts article + article { padding-left: 28px; border-left: 1px solid var(--trait); }
+  .atouts h3 { margin-bottom: 12px; }
+  .atouts p { color: var(--brume); font-size: 15.5px; }
+  @media (max-width: 860px) { .atouts { grid-template-columns: 1fr; } .atouts article + article { padding-left: 0; border-left: 0; border-top: 1px solid var(--trait); } }
+
+  /* ——— Packs ——— */
+  .packs { background: var(--blanc); }
+  .onglets { display: inline-flex; background: var(--glace); border-radius: 999px; padding: 4px; gap: 4px; margin-bottom: 30px; flex-wrap: wrap; }
+  .onglets button { border: 0; background: transparent; padding: 10px 18px; border-radius: 999px; font-weight: 700; font-size: 14.5px; cursor: pointer; color: var(--brume); }
+  .onglets button[aria-selected="true"] { background: var(--ardoise); color: #fff; }
+  .grille-packs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .carte-pack { border: 1.5px solid var(--trait); border-radius: 10px; padding: 24px; display: flex; flex-direction: column; background: var(--neige); }
+  .carte-pack h3 { font-size: 1.6rem; font-stretch: 120%; margin: 14px 0 8px; }
+  .carte-pack .pour { color: var(--brume); font-size: 15px; min-height: 3.1em; }
+  .carte-pack .prix { margin: 18px 0 20px; padding-top: 16px; border-top: 1px solid var(--trait); display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .carte-pack .prix strong { font-size: 2.1rem; font-stretch: 115%; font-weight: 800; letter-spacing: -0.03em; }
+  .carte-pack .prix span { color: var(--brume); font-size: 14px; text-align: right; }
+  .carte-pack .btn { margin-top: auto; }
+  .piste { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--brume); }
+  .piste i { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
+  .piste .verte { background: var(--verte); } .piste .bleue { background: var(--bleue); } .piste .rouge { background: var(--rouge); } .piste .noire { background: var(--noire); }
+  .piste .neutre { background: #9AA6AF; }
+  @media (max-width: 1000px) { .grille-packs { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .grille-packs { grid-template-columns: 1fr; } }
+
+  .veloski { margin-top: 56px; display: grid; grid-template-columns: 1.1fr 1fr; border-radius: 12px; overflow: hidden; background: var(--ardoise); color: #fff; }
+  .veloski .photo { min-height: 340px; }
+  .veloski .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .veloski .texte { padding: clamp(28px, 4vw, 52px); }
+  .veloski .badge { display: inline-block; background: var(--rouge); color: #fff; font-weight: 700; font-size: 13px; padding: 5px 10px; border-radius: 4px; margin-bottom: 18px; }
+  .veloski h3 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-stretch: 120%; margin-bottom: 14px; }
+  .veloski p { color: rgba(255, 255, 255, .82); }
+  .veloski .tarif-veloski { display: flex; gap: 28px; margin: 22px 0 26px; flex-wrap: wrap; }
+  .veloski .tarif-veloski div { font-size: 14px; color: rgba(255, 255, 255, .7); }
+  .veloski .tarif-veloski strong { display: block; font-size: 1.8rem; color: #fff; font-stretch: 115%; letter-spacing: -0.02em; }
+  @media (max-width: 860px) { .veloski { grid-template-columns: 1fr; } .veloski .photo { min-height: 240px; } }
+
+  /* ——— Réservation ——— */
+  .reservation { background: var(--glace); }
+  .resa { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 28px; align-items: start; }
+  .etapes { list-style: none; margin: 0 0 22px; padding: 0; display: flex; gap: 8px; counter-reset: etape; }
+  .etapes li { flex: 1; counter-increment: etape; font-size: 14px; font-weight: 700; color: var(--brume); padding-top: 12px; border-top: 4px solid rgba(20, 34, 48, .15); }
+  .etapes li::before { content: counter(etape) ". "; }
+  .etapes li.fait { color: var(--ardoise); border-color: var(--ardoise); }
+  .etapes li.actuelle { color: var(--rouge); border-color: var(--rouge); }
+  .panneau { background: var(--blanc); border-radius: 12px; padding: clamp(20px, 3vw, 36px); }
+  .panneau > h3 { font-size: 1.7rem; font-stretch: 118%; margin-bottom: 8px; }
+  .panneau > .aide { color: var(--brume); margin-bottom: 26px; }
+  .groupe { margin: 0 0 24px; padding: 0; border: 0; min-width: 0; }
+  .groupe > legend, .groupe > .etiquette { display: block; font-weight: 700; font-size: 14.5px; margin-bottom: 10px; padding: 0; }
+  .puces { display: flex; flex-wrap: wrap; gap: 8px; }
+  .puce { position: relative; }
+  .puce input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .puce span { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1.5px solid var(--trait); border-radius: 999px; font-weight: 600; font-size: 15px; background: var(--neige); transition: border-color .15s, background .15s; }
+  .puce input:checked + span { background: var(--ardoise); border-color: var(--ardoise); color: #fff; }
+  .puce input:focus-visible + span { outline: 3px solid var(--bleue); outline-offset: 2px; }
+  .puce input:disabled + span { opacity: .4; }
+  .rappel-dates { margin-top: 14px; padding: 14px 16px; background: var(--neige); border-radius: var(--rayon); font-weight: 600; display: flex; gap: 10px; align-items: center; }
+  .rappel-dates::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--rouge); flex: none; }
+  .note { font-size: 14px; color: var(--brume); margin: 8px 0 0; }
+  .actions-etape { display: flex; justify-content: space-between; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .actions-etape .btn-rouge { margin-left: auto; }
+  .erreur { color: var(--rouge-fonce); font-weight: 600; font-size: 14.5px; margin: 14px 0 0; }
+
+  .skieur { border: 1.5px solid var(--trait); border-radius: 10px; padding: 20px; margin-bottom: 16px; background: var(--blanc); }
+  .skieur > header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .skieur h4 { font-size: 1.15rem; font-stretch: 112%; }
+  .lien-bouton { background: none; border: 0; padding: 6px 0; color: var(--brume); font-weight: 600; font-size: 14px; text-decoration: underline; cursor: pointer; }
+  .lien-bouton:hover { color: var(--rouge-fonce); }
+  .ligne-champs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .ligne-champs label, .bloc-champ label { display: block; font-size: 13.5px; font-weight: 700; color: var(--brume); margin-bottom: 6px; }
+  .ligne-2 { grid-template-columns: 1.4fr 1fr; }
+  @media (max-width: 600px) { .ligne-champs { grid-template-columns: 1fr 1fr; } .ligne-2 { grid-template-columns: 1fr; } }
+  .gammes { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; }
+  .gamme { position: relative; }
+  .gamme input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .gamme > span { display: block; height: 100%; padding: 12px 14px; border: 1.5px solid var(--trait); border-radius: 8px; background: var(--neige); font-size: 13.5px; color: var(--brume); line-height: 1.35; }
+  .gamme strong { display: flex; justify-content: space-between; gap: 8px; font-size: 15.5px; color: var(--ardoise); margin-bottom: 4px; }
+  .gamme input:checked + span { border-color: var(--rouge); background: #FFF5F5; box-shadow: inset 0 0 0 1px var(--rouge); }
+  .gamme input:focus-visible + span { outline: 3px solid var(--bleue); outline-offset: 2px; }
+  .gamme .piste { margin-top: 6px; }
+  .options { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+  .case { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; cursor: pointer; min-height: 40px; }
+  .case input { width: 20px; height: 20px; accent-color: var(--rouge); }
+  .sous-total { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--trait); padding-top: 14px; margin-top: 4px; font-weight: 700; }
+  .sous-total strong { font-size: 1.3rem; font-stretch: 112%; }
+  .indispo { background: #FFF4E5; color: #7A4A00; border-radius: var(--rayon); padding: 10px 14px; font-size: 14.5px; font-weight: 600; margin: 0; }
+
+  .recap { position: sticky; top: 96px; background: var(--ardoise); color: #fff; border-radius: 12px; padding: 26px; }
+  .recap h3 { font-size: 1.35rem; font-stretch: 115%; margin-bottom: 4px; }
+  .recap .periode { color: rgba(255, 255, 255, .72); font-size: 14.5px; margin-bottom: 18px; }
+  .recap ul { list-style: none; margin: 0; padding: 0; }
+  .recap li { display: flex; justify-content: space-between; gap: 14px; padding: 10px 0; border-top: 1px solid rgba(255, 255, 255, .12); font-size: 14.5px; }
+  .recap li small { display: block; color: rgba(255, 255, 255, .62); font-size: 13px; }
+  .recap .vide { color: rgba(255, 255, 255, .6); font-size: 14.5px; padding: 10px 0; border-top: 1px solid rgba(255, 255, 255, .12); }
+  .recap .remise { color: #8EE0AE; }
+  .recap .total { display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid rgba(255, 255, 255, .5); margin-top: 6px; padding-top: 16px; }
+  .recap .total strong { font-size: 2.2rem; font-stretch: 115%; letter-spacing: -0.03em; }
+  .recap .paiement { color: rgba(255, 255, 255, .66); font-size: 13.5px; margin: 14px 0 0; }
+  .recap .total strong.flash { animation: flash .5s ease; }
+  @keyframes flash { 0% { color: #FFB3B5; } 100% { color: #fff; } }
+  .demo { display: inline-block; font-size: 12px; font-weight: 700; color: var(--brume); background: var(--neige); border: 1px dashed rgba(20, 34, 48, .3); border-radius: 4px; padding: 3px 8px; margin-bottom: 14px; }
+  @media (max-width: 980px) {
+    .resa { grid-template-columns: 1fr; }
+    .recap { position: static; }
+  }
+
+  .resume-final { margin: 0 0 22px; border: 1.5px solid var(--trait); border-radius: 10px; overflow: hidden; }
+  .resume-final table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .resume-final td { padding: 12px 16px; border-bottom: 1px solid var(--trait); vertical-align: top; }
+  .resume-final td:last-child { text-align: right; white-space: nowrap; font-weight: 700; }
+  .resume-final tr:last-child td { border-bottom: 0; }
+  .resume-final small { display: block; color: var(--brume); font-size: 13.5px; }
+  details.cgl { background: var(--neige); border-radius: var(--rayon); padding: 12px 16px; margin: 6px 0 16px; font-size: 14.5px; }
+  details.cgl summary { cursor: pointer; font-weight: 700; }
+  details.cgl ul { margin: 12px 0 4px; padding-left: 18px; color: var(--brume); }
+  details.cgl li { margin-bottom: 4px; }
+
+  .confirmation { text-align: center; padding: clamp(28px, 5vw, 56px) clamp(20px, 4vw, 48px); }
+  .confirmation .coche { width: 72px; height: 72px; border-radius: 50%; background: var(--verte); color: #fff; display: grid; place-items: center; margin: 0 auto 22px; }
+  .confirmation h3 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-stretch: 118%; margin-bottom: 12px; }
+  .confirmation .numero { display: inline-block; font-weight: 800; font-stretch: 112%; font-size: 1.25rem; letter-spacing: .04em; background: var(--neige); border-radius: var(--rayon); padding: 8px 16px; margin: 6px 0 22px; }
+  .confirmation .liste-prevoir { text-align: left; max-width: 520px; margin: 26px auto 26px; padding: 20px 24px; background: var(--neige); border-radius: 10px; }
+  .confirmation .liste-prevoir h4 { font-size: 1.05rem; margin-bottom: 10px; }
+  .confirmation .liste-prevoir ul { margin: 0; padding-left: 18px; color: var(--brume); }
+  .bandeau-demo { background: #FFF4E5; color: #7A4A00; border-radius: var(--rayon); padding: 12px 16px; font-size: 14.5px; font-weight: 600; max-width: 520px; margin: 0 auto 24px; }
+
+  /* ——— Tarifs ——— */
+  .tarifs { background: var(--neige); }
+  .table-tarifs-wrap { overflow-x: auto; background: var(--blanc); border-radius: 12px; border: 1.5px solid var(--trait); }
+  table.tarifs-table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 15px; }
+  .tarifs-table th, .tarifs-table td { padding: 13px 14px; text-align: right; border-bottom: 1px solid var(--trait); font-variant-numeric: tabular-nums; }
+  .tarifs-table th:first-child, .tarifs-table td:first-child { text-align: left; }
+  .tarifs-table thead th { font-size: 13px; color: var(--brume); font-weight: 700; background: var(--neige); }
+  .tarifs-table tbody tr:hover { background: #F8FAFB; }
+  .tarifs-table td:first-child strong { display: block; }
+  .tarifs-table td:first-child small { color: var(--brume); }
+  .bons-plans { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 26px; }
+  .bon-plan { background: var(--ardoise); color: #fff; border-radius: 10px; padding: 22px 24px; display: flex; gap: 18px; align-items: center; }
+  .bon-plan strong { font-size: 2.4rem; font-stretch: 118%; letter-spacing: -0.03em; color: #FF6B70; flex: none; }
+  .bon-plan p { margin: 0; color: rgba(255, 255, 255, .86); font-size: 15px; }
+  .tarifs .cgl { margin-top: 26px; background: var(--blanc); }
+  @media (max-width: 760px) { .bons-plans { grid-template-columns: 1fr; } }
+
+  /* ——— Magasin ——— */
+  .magasin .grille { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+  .mosaique { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .mosaique img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
+  .mosaique img:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+  .magasin .texte p { color: var(--brume); }
+  .marques { display: flex; flex-wrap: wrap; gap: 10px 26px; margin: 22px 0 28px; padding: 18px 0; border-top: 1px solid var(--trait); border-bottom: 1px solid var(--trait); font-weight: 800; font-stretch: 120%; font-size: 1.15rem; letter-spacing: .02em; }
+  .vente { columns: 2; padding-left: 18px; color: var(--brume); margin: 10px 0 0; }
+  @media (max-width: 860px) { .magasin .grille { grid-template-columns: 1fr; } }
+
+  /* ——— Infos ——— */
+  .infos { background: var(--ardoise); color: #fff; }
+  .infos .grille { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(28px, 5vw, 72px); }
+  .infos h2 { margin-bottom: 30px; }
+  .infos dl { margin: 0; display: grid; gap: 22px; }
+  .infos dt { font-size: 13.5px; font-weight: 700; color: rgba(255, 255, 255, .6); margin-bottom: 4px; }
+  .infos dd { margin: 0; font-size: 1.1rem; }
+  .infos dd a { text-decoration: none; }
+  .infos dd a:hover { text-decoration: underline; }
+  .infos .tel { font-size: 2rem; font-weight: 800; font-stretch: 115%; letter-spacing: -0.02em; }
+  .infos .carte-geo { border-radius: 12px; overflow: hidden; min-height: 420px; background: var(--ardoise-2); }
+  .infos iframe { width: 100%; height: 100%; min-height: 420px; border: 0; display: block; }
+  @media (max-width: 860px) { .infos .grille { grid-template-columns: 1fr; } .infos .carte-geo, .infos iframe { min-height: 320px; } }
+
+  .pied { background: #0D1822; color: rgba(255, 255, 255, .62); font-size: 14px; padding: 28px 0; }
+  .pied .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .pied p { margin: 0; }
+</style>
+</head>
+<body>
+
+<header class="entete" id="entete">
+  <div class="wrap">
+    <a href="#accueil" class="marque">La <b>N</b>ouvelle <b>G</b>lisse</a>
+    <button class="bouton-menu" id="bouton-menu" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="#packs">Location</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#magasin">Le magasin</a>
+      <a href="#infos">Accès</a>
+      <a href="#reserver" class="btn btn-rouge">Réserver</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="accueil" id="accueil" style="padding:0">
+    <div class="fond">
+      <img src="images/vercors.jpg" data-remote="http://www.lanouvelleglisse.com/img/squelette/bgHeader.jpg" alt="Sommets enneigés du Vercors et forêt de sapins" fetchpriority="high">
+    </div>
+    <div class="wrap contenu">
+      <h1>Louez au pied des pistes.</h1>
+      <p class="sous">Skis, snowboards, raquettes et vélo-ski à Villard-de-Lans. Le magasin est sous la télécabine du Pré des Preys, à 10 mètres de l'arrivée des navettes.</p>
+      <form class="acces-rapide" id="acces-rapide" aria-label="Commencer une réservation">
+        <div>
+          <label for="ar-date">Premier jour</label>
+          <input class="champ" type="date" id="ar-date" required>
+        </div>
+        <div>
+          <label for="ar-duree">Durée</label>
+          <select class="champ" id="ar-duree">
+            <option value="am">½ journée (matin)</option>
+            <option value="pm">½ journée (après-midi)</option>
+            <option value="1">1 jour</option>
+            <option value="2">2 jours</option>
+            <option value="3">3 jours</option>
+            <option value="4">4 jours</option>
+            <option value="5">5 jours</option>
+            <option value="6" selected>6 jours</option>
+          </select>
+        </div>
+        <div>
+          <label for="ar-nb">Personnes</label>
+          <select class="champ" id="ar-nb">
+            <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-rouge">Choisir le matériel</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="bandeau-atouts">
+    <div class="wrap">
+      <ul>
+        <li>Ouvert tous les jours de la saison, 8 h 30 – 17 h 30</li>
+        <li>Matériel renouvelé chaque année</li>
+        <li>−25 % à la semaine hors vacances scolaires</li>
+        <li>−10 % pour les groupes dès 10 personnes</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="pourquoi" id="pourquoi">
+    <div class="wrap">
+      <div class="titre-section">
+        <h2>Le magasin le plus proche des pistes</h2>
+        <p>Vous chaussez, vous sortez, vous êtes sur la neige. Et en fin de journée, vous déposez votre matériel en descendant de la télécabine.</p>
+      </div>
+      <div class="atouts">
+        <article>
+          <h3>Du matériel récent</h3>
+          <p>La Nouvelle Glisse investit chaque année dans son parc de location : Head, Dynastar, Rossignol, Nordica, Salomon.</p>
+        </article>
+        <article>
+          <h3>Un atelier bien équipé</h3>
+          <p>Affûteuse céramique Reichmann, ponceuse à pierre, farteuse : chaque ski est entretenu sur place. On soigne aussi votre matériel personnel.</p>
+        </article>
+        <article>
+          <h3>Des chaussures au sec</h3>
+          <p>Toutes les chaussures sont rangées chaque soir dans des étagères à séchage et désinfection automatique. L'équipe vous conseille sur la taille et le niveau.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="packs" id="packs">
+    <div class="wrap">
+      <div class="titre-section">
+        <h2>Choisissez votre pack</h2>
+        <p>Un pack comprend les skis et les chaussures. Les prix ci-dessous sont pour une journée et pour six jours.</p>
+      </div>
+      <div class="onglets" role="tablist" aria-label="Type de pack">
+        <button type="button" role="tab" aria-selected="true" data-onglet="adulte">Adultes</button>
+        <button type="button" role="tab" aria-selected="false" data-onglet="enfant">Enfants</button>
+        <button type="button" role="tab" aria-selected="false" data-onglet="snow">Snowboard</button>
+      </div>
+      <div class="grille-packs" id="grille-packs" role="tabpanel"></div>
+
+      <div class="veloski">
+        <div class="photo"><img src="images/plateau.jpg" data-remote="http://www.lanouvelleglisse.com/img/accueil/bgLienLocation.jpg" alt="Plateau enneigé et forêt du Vercors" loading="lazy"></div>
+        <div class="texte">
+          <span class="badge">Unique à Villard-de-Lans</span>
+          <h3>Le vélo-ski</h3>
+          <p>Un VTT tout suspendu monté sur skis, pour prolonger le plaisir du vélo en hiver. Facile à prendre en main, quel que soit votre niveau de ski.</p>
+          <div class="tarif-veloski">
+            <div><strong>34 €</strong>½ journée avec bottes</div>
+            <div><strong>44 €</strong>1 jour avec bottes</div>
+            <div><strong>88 €</strong>2 jours avec bottes</div>
+          </div>
+          <a href="#reserver" class="btn btn-rouge" data-ajout="veloski">Réserver un vélo-ski</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reservation" id="reserver">
+    <div class="wrap">
+      <div class="titre-section">
+        <h2>Réservez votre matériel</h2>
+        <p>Choisissez vos dates et votre matériel en ligne. Vous payez au magasin, en récupérant vos skis.</p>
+      </div>
+
+      <div class="resa" id="resa">
+        <div>
+          <ol class="etapes" id="etapes">
+            <li class="actuelle">Séjour</li>
+            <li>Matériel</li>
+            <li>Coordonnées</li>
+          </ol>
+
+          <!-- Étape 1 -->
+          <div class="panneau" id="etape-1">
+            <span class="demo">Démonstration</span>
+            <h3>Quand venez-vous ?</h3>
+            <p class="aide">Les tarifs dégressifs s'appliquent aux journées entières et consécutives.</p>
+            <div class="groupe">
+              <label class="etiquette" for="r-date">Premier jour de location</label>
+              <input class="champ" type="date" id="r-date" style="max-width:280px">
+            </div>
+            <fieldset class="groupe">
+              <legend>Durée</legend>
+              <div class="puces" id="r-duree"></div>
+            </fieldset>
+            <p class="rappel-dates" id="r-rappel">Choisissez une date pour voir vos dates de location.</p>
+            <p class="erreur" id="erreur-1" role="alert" hidden></p>
+            <div class="actions-etape">
+              <button type="button" class="btn btn-rouge" id="vers-2">Continuer</button>
+            </div>
+          </div>
+
+          <!-- Étape 2 -->
+          <div class="panneau" id="etape-2" hidden>
+            <span class="demo">Démonstration</span>
+            <h3>Qui part sur les pistes ?</h3>
+            <p class="aide">Ajoutez chaque personne et son matériel. Taille, poids et pointure nous aident à préparer le bon réglage avant votre arrivée.</p>
+            <div id="skieurs"></div>
+            <button type="button" class="btn btn-ligne" id="ajouter-skieur">Ajouter une personne</button>
+            <p class="erreur" id="erreur-2" role="alert" hidden></p>
+            <div class="actions-etape">
+              <button type="button" class="btn btn-ligne" data-retour="1">Retour</button>
+              <button type="button" class="btn btn-rouge" id="vers-3">Continuer</button>
+            </div>
+          </div>
+
+          <!-- Étape 3 -->
+          <div class="panneau" id="etape-3" hidden>
+            <span class="demo">Démonstration</span>
+            <h3>Vos coordonnées</h3>
+            <p class="aide">Vérifiez votre réservation, puis indiquez comment vous joindre.</p>
+            <div class="resume-final" id="resume-final"></div>
+            <form id="form-contact" novalidate>
+              <div class="ligne-champs ligne-2" style="grid-template-columns:1fr 1fr">
+                <div><label for="c-prenom">Prénom</label><input class="champ" id="c-prenom" autocomplete="given-name" required></div>
+                <div><label for="c-nom">Nom</label><input class="champ" id="c-nom" autocomplete="family-name" required></div>
+              </div>
+              <div class="ligne-champs ligne-2" style="grid-template-columns:1fr 1fr; margin-top:12px">
+                <div><label for="c-email">E-mail</label><input class="champ" id="c-email" type="email" autocomplete="email" required></div>
+                <div><label for="c-tel">Téléphone</label><input class="champ" id="c-tel" type="tel" autocomplete="tel" required></div>
+              </div>
+              <div class="bloc-champ" style="margin-top:12px">
+                <label for="c-retrait">Heure de retrait du matériel</label>
+                <select class="champ" id="c-retrait" style="max-width:360px"></select>
+              </div>
+              <div class="bloc-champ" style="margin-top:12px">
+                <label for="c-message">Une précision pour l'équipe ? (facultatif)</label>
+                <textarea class="champ" id="c-message" placeholder="Niveau, cours de ski, matériel personnel à affûter…"></textarea>
+              </div>
+              <details class="cgl" id="cgl-resa">
+                <summary>Conditions générales de location</summary>
+                <ul data-cgl></ul>
+              </details>
+              <label class="case"><input type="checkbox" id="c-cgl" required> J'accepte les conditions générales de location</label>
+              <p class="erreur" id="erreur-3" role="alert" hidden></p>
+              <div class="actions-etape">
+                <button type="button" class="btn btn-ligne" data-retour="2">Retour</button>
+                <button type="submit" class="btn btn-rouge">Confirmer la réservation</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Confirmation -->
+          <div class="panneau confirmation" id="etape-4" hidden aria-live="polite"></div>
+        </div>
+
+        <aside class="recap" id="recap"></aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="tarifs" id="tarifs">
+    <div class="wrap">
+      <div class="titre-section">
+        <h2>Tarifs 2025 / 2026</h2>
+        <p>Prix en euros, par personne. La demi-journée du matin va jusqu'à 13 h, celle de l'après-midi commence à 12 h 30.</p>
+      </div>
+      <div class="onglets" role="tablist" aria-label="Catégorie de tarifs" id="onglets-tarifs"></div>
+      <div class="table-tarifs-wrap" role="tabpanel"><table class="tarifs-table" id="table-tarifs"></table></div>
+      <div class="bons-plans">
+        <div class="bon-plan"><strong>−25 %</strong><p>Sur toute location à la semaine hors vacances scolaires, toutes zones confondues.</p></div>
+        <div class="bon-plan"><strong>−10 %</strong><p>Pour les groupes à partir de 10 personnes, sur tous les tarifs et toute la saison, vacances comprises.</p></div>
+      </div>
+      <details class="cgl" id="conditions">
+        <summary>Conditions générales de location</summary>
+        <ul data-cgl></ul>
+      </details>
+    </div>
+  </section>
+
+  <section class="magasin" id="magasin">
+    <div class="wrap grille">
+      <div class="mosaique">
+        <img src="images/magasin-1.jpg" data-remote="http://www.lanouvelleglisse.com/img/squelette/imgDecoFooter-1.jpg" alt="Le comptoir de location et le mur d'accessoires" loading="lazy">
+        <img src="images/magasin-3.jpg" data-remote="http://www.lanouvelleglisse.com/img/squelette/imgDecoFooter-3.jpg" alt="Les râteliers de skis de location" loading="lazy">
+        <img src="images/magasin-4.jpg" data-remote="http://www.lanouvelleglisse.com/img/squelette/imgDecoFooter-4.jpg" alt="L'espace location aux poutres en bois" loading="lazy">
+      </div>
+      <div class="texte">
+        <h2 style="margin-bottom:24px">Une boutique à l'ambiance montagne</h2>
+        <p>Anne-Marie et son équipe vous accueillent dans un magasin chaleureux, au pied des pistes de la Côte 2000. Ils vous conseillent sur le choix de votre équipement, puis sur l'entretien et la réparation de vos skis personnels.</p>
+        <div class="marques" aria-label="Marques proposées">
+          <span>HEAD</span><span>DYNASTAR</span><span>ROSSIGNOL</span><span>NORDICA</span><span>SALOMON</span>
+        </div>
+        <h3>Aussi en vente au magasin</h3>
+        <ul class="vente">
+          <li>Lunettes et masques</li>
+          <li>Bonnets, bandeaux, gants</li>
+          <li>Casques et protections dorsales</li>
+          <li>Bâtons</li>
+          <li>Sacs à dos, sacs à chaussures</li>
+          <li>Ceintures Skimp</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="infos" id="infos">
+    <div class="wrap grille">
+      <div>
+        <h2>Nous trouver</h2>
+        <dl>
+          <div><dt>Téléphone</dt><dd><a class="tel" href="tel:+33476941070">04 76 94 10 70</a></dd></div>
+          <div><dt>Adresse</dt><dd>2366 route de la Côte 2000<br>38250 Villard-de-Lans</dd></div>
+          <div><dt>Repère</dt><dd>Sous la gare de départ de la télécabine du Pré des Preys, à 10 mètres de l'arrivée des navettes.</dd></div>
+          <div><dt>Horaires</dt><dd>Tous les jours, de l'ouverture à la fermeture de la station<br>8 h 30 – 17 h 30</dd></div>
+          <div><dt>E-mail</dt><dd><a href="mailto:lanouvelleglisse@gmail.com">lanouvelleglisse@gmail.com</a></dd></div>
+        </dl>
+      </div>
+      <div class="carte-geo">
+        <iframe title="Plan d'accès à La Nouvelle Glisse, Villard-de-Lans" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=La%20Nouvelle%20Glisse%2C%202366%20Route%20de%20la%20C%C3%B4te%202000%2C%2038250%20Villard-de-Lans&z=14&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <p>© 2026 La Nouvelle Glisse, Villard-de-Lans</p>
+    <p>Réservation en ligne : version de démonstration, aucune donnée n'est envoyée.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ================= Données (tarifs 2025/2026) =================
+     Chaque tableau : [½ j, 1 j, 2 j, 3 j, 4 j, 5 j, 6 j]           */
+  var T = {
+    pack: {
+      baby: [8, 10, 20, 27, 33, 39, 45], junior: [10, 12, 24, 35, 46, 56, 65], competition: [12, 15, 30, 43, 55, 65, 75],
+      bronze: [16, 21, 42, 60, 75, 88, 100], argent: [19, 25, 50, 70, 89, 106, 120], or: [22, 29, 58, 82, 103, 123, 140], diamant: [25, 33, 66, 90, 114, 138, 160]
+    },
+    skis: {
+      baby: [5, 6, 10, 15, 20, 24, 27], junior: [6, 8, 16, 22, 28, 33, 38], competition: [7, 10, 18, 26, 34, 41, 47],
+      bronze: [13, 16, 32, 46, 59, 71, 80], argent: [15, 19, 38, 55, 72, 87, 100], or: [17, 23, 46, 66, 85, 103, 118], diamant: [19, 26, 52, 74, 95, 114, 133]
+    },
+    snowPack: { enfant: [12, 16, 32, 44, 55, 65, 73], adulte: [20, 26, 52, 72, 90, 107, 120] },
+    snow: { enfant: [8, 11, 20, 29, 39, 47, 55], adulte: [14, 18, 36, 52, 66, 82, 95] },
+    chaussures: { baby: [3, 5, 9, 13, 16, 19, 21], junior: [5, 6, 12, 17, 22, 26, 29], adulte: [10, 14, 28, 40, 52, 62, 70] },
+    batons: [5, 5, 8, 10, 12, 14, 15],
+    luge: [3, 5, 8, 10, 13, 16, 18],
+    raquettes: [7, 10, 17, 22, 27, 31, 35],
+    casque: [3, 5, 7, 10, 13, 16, 18],
+    veloski: { sans: [29, 39, 78], avec: [34, 44, 88] }
+  };
+
+  var GAMMES = {
+    enfant: [
+      { id: 'baby', nom: 'Baby', detail: 'Les tout-petits, skis de 80 à 110 cm' },
+      { id: 'junior', nom: 'Junior', detail: 'Du débutant à la 3e étoile, skis de 120 à 150 cm' },
+      { id: 'competition', nom: 'Compétition', detail: "Dès l'Étoile de bronze, skis de 120 à 160 cm" }
+    ],
+    adulte: [
+      { id: 'bronze', nom: 'Bronze', detail: 'Débutant, chasse-neige, ou mini-skis', piste: 'verte', niveau: 'Pistes vertes' },
+      { id: 'argent', nom: 'Argent', detail: 'Skieur moyen, parallèle de base', piste: 'bleue', niveau: 'Pistes bleues' },
+      { id: 'or', nom: 'Or', detail: 'Bon skieur, ski haut de gamme', piste: 'rouge', niveau: 'Pistes rouges' },
+      { id: 'diamant', nom: 'Diamant', detail: "Bon skieur, ski récent et d'exception", piste: 'noire', niveau: 'Toutes pistes' }
+    ]
+  };
+
+  var CGL = [
+    "Une empreinte bancaire est faite pour la caution ; à défaut, une pièce d'identité est demandée.",
+    'La location est payable lors de la prise en charge du matériel.',
+    "Demi-journée : le matin jusqu'à 13 h, l'après-midi à partir de 12 h 30.",
+    'Le tarif dégressif s’applique uniquement aux journées entières et consécutives.',
+    'Le matériel loué est placé sous la responsabilité du locataire.',
+    "Le matériel n'est pas assuré contre la perte, le vol ou la casse. Une garantie casse est proposée en caisse.",
+    'Tout matériel non restitué est facturé selon sa valeur à neuf : 60 % la première année, 40 % la deuxième, puis 20 %.',
+    "Les dégâts résultant d'un usage anormal sont facturés au tarif de l'atelier."
+  ];
+
+  /* Vacances scolaires 2026/2027, toutes zones confondues (à mettre à jour chaque saison) */
+  var VACANCES = [['2026-12-19', '2027-01-04'], ['2027-02-06', '2027-03-08'], ['2027-04-03', '2027-05-03']];
+
+  var DUREES = [
+    { v: 'am', court: '½ j matin', idx: 0, jours: 1 },
+    { v: 'pm', court: '½ j après-midi', idx: 0, jours: 1 },
+    { v: '1', court: '1 jour', idx: 1, jours: 1 },
+    { v: '2', court: '2 jours', idx: 2, jours: 2 },
+    { v: '3', court: '3 jours', idx: 3, jours: 3 },
+    { v: '4', court: '4 jours', idx: 4, jours: 4 },
+    { v: '5', court: '5 jours', idx: 5, jours: 5 },
+    { v: '6', court: '6 jours', idx: 6, jours: 6 }
+  ];
+
+  /* ================= Outils ================= */
+  function $(s, c) { return (c || document).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+  function euros(n) { return (Math.round(n * 100) / 100).toLocaleString('fr-FR', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 }) + ' €'; }
+  function echappe(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function isoLocal(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+  function versDate(iso) { var p = iso.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function ajouteJours(d, n) { var x = new Date(d); x.setDate(x.getDate() + n); return x; }
+  function dateLongue(d) { return d.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }); }
+  function dateCourte(d) { return d.toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'short' }); }
+  function duree() { return DUREES.find(function (x) { return x.v === etat.duree; }); }
+
+  /* ================= État ================= */
+  var compteur = 0;
+  function nouveauSkieur(cat, preset) {
+    compteur++;
+    var s = { id: compteur, prenom: '', cat: cat || 'adulte', activite: 'ski', formule: 'pack', gamme: cat === 'enfant' ? 'junior' : 'argent', bottes: 'avec', casque: false, batons: false, taille: '', poids: '', pointure: '' };
+    if (preset) Object.keys(preset).forEach(function (k) { s[k] = preset[k]; });
+    return s;
+  }
+  /* Date proposée par défaut : demain, ou l'ouverture de la saison si elle n'a pas commencé (à mettre à jour chaque saison) */
+  var OUVERTURE_SAISON = '2026-12-19';
+  var demain = isoLocal(ajouteJours(new Date(), 1));
+  var etat = { date: demain > OUVERTURE_SAISON ? demain : OUVERTURE_SAISON, duree: '6', skieurs: [nouveauSkieur('adulte')], etape: 1 };
+
+  /* ================= Calcul des prix ================= */
+  function lignesSkieur(s) {
+    var d = duree(), i = d.idx, L = [];
+    function ajoute(nom, tab) { L.push({ nom: nom, prix: tab[i] }); }
+    var g = (GAMMES[s.cat].find(function (x) { return x.id === s.gamme; }) || GAMMES[s.cat][0]);
+    if (s.activite === 'ski') {
+      if (s.formule === 'pack') ajoute('Pack ' + g.nom + ' (skis + chaussures)', T.pack[g.id]);
+      if (s.formule === 'skis') ajoute('Skis ' + g.nom, T.skis[g.id]);
+      if (s.formule === 'chaussures') ajoute('Chaussures ' + (s.cat === 'adulte' ? 'adulte' : (g.id === 'baby' ? 'baby' : 'junior')), T.chaussures[s.cat === 'adulte' ? 'adulte' : (g.id === 'baby' ? 'baby' : 'junior')]);
+      if (s.batons && s.formule !== 'chaussures') ajoute('Bâtons', T.batons);
+    } else if (s.activite === 'snow') {
+      if (s.formule === 'pack') ajoute('Pack snowboard ' + s.cat, T.snowPack[s.cat]);
+      else ajoute('Snowboard ' + s.cat, T.snow[s.cat]);
+    } else if (s.activite === 'raquettes') {
+      ajoute('Raquettes', T.raquettes);
+    } else if (s.activite === 'luge') {
+      ajoute('Luge', T.luge);
+    } else if (s.activite === 'veloski') {
+      if (i > 2) return { lignes: [], total: 0, indispo: true };
+      ajoute('Vélo-ski ' + (s.bottes === 'avec' ? 'avec bottes' : 'sans bottes'), T.veloski[s.bottes]);
+    }
+    if (s.casque) ajoute('Casque', T.casque);
+    return { lignes: L, total: L.reduce(function (a, l) { return a + l.prix; }, 0), indispo: false };
+  }
+
+  function chevaucheVacances(debut, jours) {
+    var a = versDate(debut), b = ajouteJours(a, jours - 1);
+    return VACANCES.some(function (v) { var x = versDate(v[0]), y = versDate(v[1]); return a <= y && b >= x; });
+  }
+
+  function calcul() {
+    var brut = 0;
+    var details = etat.skieurs.map(function (s) { var r = lignesSkieur(s); brut += r.total; return r; });
+    var remise = null, d = duree();
+    if (etat.skieurs.length >= 10) remise = { taux: 0.10, nom: 'Groupe de 10 personnes et plus' };
+    if (d.v === '6' && etat.date && !chevaucheVacances(etat.date, 6)) {
+      if (!remise || remise.taux < 0.25) remise = { taux: 0.25, nom: 'Semaine hors vacances scolaires' };
+    }
+    var montantRemise = remise ? Math.round(brut * remise.taux * 100) / 100 : 0;
+    return { details: details, brut: brut, remise: remise, montantRemise: montantRemise, total: brut - montantRemise };
+  }
+
+  function texteDates() {
+    if (!etat.date) return '';
+    var d = duree(), a = versDate(etat.date);
+    if (d.v === 'am') return dateLongue(a) + ', le matin (jusqu’à 13 h)';
+    if (d.v === 'pm') return dateLongue(a) + ', l’après-midi (dès 12 h 30)';
+    if (d.jours === 1) return dateLongue(a) + ', la journée';
+    return 'Du ' + dateLongue(a) + ' au ' + dateLongue(ajouteJours(a, d.jours - 1));
+  }
+
+  function resumeSkieur(s) {
+    var g = GAMMES[s.cat].find(function (x) { return x.id === s.gamme; });
+    var noms = { ski: 'Ski alpin', snow: 'Snowboard', raquettes: 'Raquettes', luge: 'Luge', veloski: 'Vélo-ski' };
+    var t = noms[s.activite];
+    if (s.activite === 'ski') t += ', ' + ({ pack: 'pack ', skis: 'skis ', chaussures: 'chaussures ' }[s.formule]) + (s.formule === 'chaussures' ? '' : g.nom);
+    if (s.activite === 'snow') t += s.formule === 'pack' ? ', planche + boots' : ', planche seule';
+    var opts = [];
+    if (s.casque) opts.push('casque');
+    if (s.batons && s.activite === 'ski' && s.formule !== 'chaussures') opts.push('bâtons');
+    return t + (opts.length ? ' + ' + opts.join(' + ') : '');
+  }
+
+  /* ================= Rendu : récapitulatif ================= */
+  var dernierTotal = null;
+  function rendRecap() {
+    var c = calcul(), d = duree();
+    var html = '<h3>Votre réservation</h3><p class="periode">' + (etat.date ? echappe(texteDates()) : 'Dates à choisir') + '</p><ul>';
+    etat.skieurs.forEach(function (s, k) {
+      var r = c.details[k];
+      html += '<li><span>' + echappe(s.prenom || ('Personne ' + (k + 1))) + '<small>' + echappe(resumeSkieur(s)) + '</small></span><span>' + (r.indispo ? '—' : euros(r.total)) + '</span></li>';
+    });
+    html += '</ul>';
+    if (c.remise) html += '<ul><li class="remise"><span>' + echappe(c.remise.nom) + '<small>−' + Math.round(c.remise.taux * 100) + ' %</small></span><span>−' + euros(c.montantRemise) + '</span></li></ul>';
+    html += '<div class="total"><span>Total</span><strong id="total-montant">' + euros(c.total) + '</strong></div>';
+    html += '<p class="paiement">Rien à payer en ligne : vous réglez au magasin en récupérant le matériel. ' + (d.idx === 0 ? 'Location à la demi-journée.' : d.jours + ' jour' + (d.jours > 1 ? 's' : '') + ' de location.') + '</p>';
+    $('#recap').innerHTML = html;
+    if (dernierTotal !== null && dernierTotal !== c.total) $('#total-montant').classList.add('flash');
+    dernierTotal = c.total;
+  }
+
+  /* ================= Rendu : étape 1 ================= */
+  function rendDuree() {
+    $('#r-duree').innerHTML = DUREES.map(function (d) {
+      return '<label class="puce"><input type="radio" name="duree" value="' + d.v + '"' + (etat.duree === d.v ? ' checked' : '') + '><span>' + d.court + '</span></label>';
+    }).join('');
+  }
+  function rendRappel() {
+    var p = $('#r-rappel');
+    if (!etat.date) { p.textContent = 'Choisissez une date pour voir vos dates de location.'; return; }
+    var t = texteDates();
+    if (duree().v === '6') t += chevaucheVacances(etat.date, 6) ? ' (période de vacances scolaires)' : ' : −25 % appliqués, hors vacances scolaires';
+    p.textContent = t.charAt(0).toUpperCase() + t.slice(1);
+  }
+
+  /* ================= Rendu : étape 2 ================= */
+  function radio(nom, valeur, courant, texte, desactive) {
+    return '<label class="puce"><input type="radio" name="' + nom + '" value="' + valeur + '"' + (courant === valeur ? ' checked' : '') + (desactive ? ' disabled' : '') + '><span>' + texte + '</span></label>';
+  }
+  function rendSkieur(s, k) {
+    var n = 's' + s.id, d = duree(), r = lignesSkieur(s);
+    var h = '<article class="skieur" data-id="' + s.id + '">';
+    h += '<header><h4>Personne ' + (k + 1) + (s.prenom ? ' : ' + echappe(s.prenom) : '') + '</h4>' + (etat.skieurs.length > 1 ? '<button type="button" class="lien-bouton" data-retirer="' + s.id + '">Retirer</button>' : '') + '</header>';
+    h += '<div class="ligne-champs ligne-2" style="margin-bottom:18px"><div><label for="' + n + '-prenom">Prénom</label><input class="champ" id="' + n + '-prenom" data-champ="prenom" value="' + echappe(s.prenom) + '" autocomplete="off"></div>';
+    h += '<fieldset class="groupe" style="margin:0"><legend class="visuellement-cache">Âge</legend><span class="etiquette" style="font-size:13.5px;color:var(--brume);margin-bottom:6px;display:block;font-weight:700">Âge</span><div class="puces">' + radio(n + '-cat', 'adulte', s.cat, 'Adulte') + radio(n + '-cat', 'enfant', s.cat, 'Enfant') + '</div></fieldset></div>';
+
+    h += '<fieldset class="groupe"><legend>Activité</legend><div class="puces">' +
+      radio(n + '-act', 'ski', s.activite, 'Ski alpin') + radio(n + '-act', 'snow', s.activite, 'Snowboard') +
+      radio(n + '-act', 'raquettes', s.activite, 'Raquettes') +
+      (s.cat === 'adulte' ? radio(n + '-act', 'veloski', s.activite, 'Vélo-ski') : '') +
+      radio(n + '-act', 'luge', s.activite, 'Luge') + '</div></fieldset>';
+
+    if (s.activite === 'ski') {
+      h += '<fieldset class="groupe"><legend>Formule</legend><div class="puces">' + radio(n + '-for', 'pack', s.formule, 'Skis + chaussures') + radio(n + '-for', 'skis', s.formule, 'Skis seuls') + radio(n + '-for', 'chaussures', s.formule, 'Chaussures seules') + '</div></fieldset>';
+      if (s.formule !== 'chaussures' || s.cat === 'enfant') {
+        h += '<fieldset class="groupe"><legend>Gamme</legend><div class="gammes">' + GAMMES[s.cat].filter(function (g) { return !(s.formule === 'chaussures' && g.id === 'competition'); }).map(function (g) {
+          var tab = s.formule === 'pack' ? T.pack[g.id] : s.formule === 'skis' ? T.skis[g.id] : T.chaussures[g.id === 'baby' ? 'baby' : 'junior'];
+          return '<label class="gamme"><input type="radio" name="' + n + '-gam" value="' + g.id + '"' + (s.gamme === g.id ? ' checked' : '') + '><span><strong>' + g.nom + '<em style="font-style:normal">' + euros(tab[d.idx]) + '</em></strong>' + g.detail + (g.piste ? '<br><span class="piste"><i class="' + g.piste + '"></i>' + g.niveau + '</span>' : '') + '</span></label>';
+        }).join('') + '</div></fieldset>';
+      }
+    }
+    if (s.activite === 'snow') {
+      h += '<fieldset class="groupe"><legend>Formule</legend><div class="puces">' + radio(n + '-for', 'pack', s.formule, 'Planche + boots') + radio(n + '-for', 'planche', s.formule, 'Planche seule') + '</div></fieldset>';
+    }
+    if (s.activite === 'veloski') {
+      if (d.idx > 2) h += '<p class="indispo">Le vélo-ski se loue pour une demi-journée, 1 jour ou 2 jours. Changez la durée à l’étape 1, ou choisissez une autre activité.</p><div style="height:18px"></div>';
+      else h += '<fieldset class="groupe"><legend>Bottes</legend><div class="puces">' + radio(n + '-bot', 'avec', s.bottes, 'Avec bottes') + radio(n + '-bot', 'sans', s.bottes, 'Sans bottes') + '</div></fieldset>';
+    }
+    if (s.activite !== 'luge' && s.activite !== 'raquettes') {
+      h += '<div class="ligne-champs" style="margin-bottom:20px">' +
+        '<div><label for="' + n + '-taille">Taille (cm)</label><input class="champ" id="' + n + '-taille" data-champ="taille" inputmode="numeric" value="' + echappe(s.taille) + '" placeholder="175"></div>' +
+        '<div><label for="' + n + '-poids">Poids (kg)</label><input class="champ" id="' + n + '-poids" data-champ="poids" inputmode="numeric" value="' + echappe(s.poids) + '" placeholder="70"></div>' +
+        '<div><label for="' + n + '-pointure">Pointure</label><input class="champ" id="' + n + '-pointure" data-champ="pointure" inputmode="numeric" value="' + echappe(s.pointure) + '" placeholder="42"></div></div>';
+    }
+    h += '<fieldset class="groupe"><legend>Options</legend><div class="options">' +
+      '<label class="case"><input type="checkbox" data-option="casque"' + (s.casque ? ' checked' : '') + '> Casque (+' + euros(T.casque[d.idx]) + ')</label>' +
+      (s.activite === 'ski' && s.formule !== 'chaussures' ? '<label class="case"><input type="checkbox" data-option="batons"' + (s.batons ? ' checked' : '') + '> Bâtons (+' + euros(T.batons[d.idx]) + ')</label>' : '') +
+      '</div></fieldset>';
+    h += '<div class="sous-total"><span>Sous-total</span><strong>' + (r.indispo ? 'Indisponible' : euros(r.total)) + '</strong></div>';
+    return h + '</article>';
+  }
+  function rendSkieurs() {
+    $('#skieurs').innerHTML = etat.skieurs.map(rendSkieur).join('');
+    $('#ajouter-skieur').hidden = etat.skieurs.length >= 15;
+  }
+  function majSousTotaux() {
+    etat.skieurs.forEach(function (s) {
+      var el = $('.skieur[data-id="' + s.id + '"] .sous-total strong');
+      if (el) { var r = lignesSkieur(s); el.textContent = r.indispo ? 'Indisponible' : euros(r.total); }
+    });
+  }
+
+  /* ================= Rendu : étape 3 ================= */
+  function rendResumeFinal() {
+    var c = calcul();
+    var h = '<table><tbody><tr><td><strong>Dates</strong><small>' + echappe(texteDates().charAt(0).toUpperCase() + texteDates().slice(1)) + '</small></td><td></td></tr>';
+    etat.skieurs.forEach(function (s, k) {
+      var r = c.details[k];
+      h += '<tr><td><strong>' + echappe(s.prenom || 'Personne ' + (k + 1)) + '</strong><small>' + r.lignes.map(function (l) { return echappe(l.nom); }).join(', ') +
+        (s.taille || s.poids || s.pointure ? ' · ' + [s.taille && s.taille + ' cm', s.poids && s.poids + ' kg', s.pointure && 'pointure ' + s.pointure].filter(Boolean).map(echappe).join(', ') : '') + '</small></td><td>' + euros(r.total) + '</td></tr>';
+    });
+    if (c.remise) h += '<tr><td><strong>' + echappe(c.remise.nom) + '</strong></td><td>−' + euros(c.montantRemise) + '</td></tr>';
+    h += '<tr><td><strong>Total à régler au magasin</strong></td><td>' + euros(c.total) + '</td></tr></tbody></table>';
+    $('#resume-final').innerHTML = h;
+
+    var sel = $('#c-retrait'), d = duree(), opts;
+    if (d.v === 'pm') opts = ['Entre 12 h 30 et 13 h 30', 'Entre 13 h 30 et 15 h'];
+    else opts = ['Dès l’ouverture, 8 h 30 – 9 h 30', 'Entre 9 h 30 et 11 h', 'Entre 11 h et 13 h', 'L’après-midi, avant 17 h'];
+    if (d.v === 'am') opts = opts.slice(0, 3);
+    sel.innerHTML = opts.map(function (o) { return '<option>' + o + '</option>'; }).join('');
+  }
+
+  /* ================= Navigation entre étapes ================= */
+  function allerA(n) {
+    etat.etape = n;
+    [1, 2, 3, 4].forEach(function (k) { $('#etape-' + k).hidden = k !== n; });
+    $$('#etapes li').forEach(function (li, k) {
+      li.classList.toggle('fait', k + 1 < n || n === 4);
+      li.classList.toggle('actuelle', k + 1 === n);
+    });
+    if (n === 2) rendSkieurs();
+    if (n === 3) rendResumeFinal();
+    rendRecap();
+    var haut = $('#reserver').getBoundingClientRect().top + window.scrollY + 40;
+    if (window.scrollY > haut || window.scrollY < haut - 400) window.scrollTo({ top: haut, behavior: 'smooth' });
+  }
+  function erreur(n, msg) { var e = $('#erreur-' + n); e.textContent = msg || ''; e.hidden = !msg; }
+
+  $('#vers-2').addEventListener('click', function () {
+    if (!etat.date) { erreur(1, 'Choisissez le premier jour de location.'); return; }
+    if (etat.date < isoLocal(new Date())) { erreur(1, 'Cette date est passée. Choisissez une date à partir d’aujourd’hui.'); return; }
+    erreur(1); allerA(2);
+  });
+  $('#vers-3').addEventListener('click', function () {
+    var bloque = etat.skieurs.some(function (s) { return lignesSkieur(s).indispo; });
+    if (bloque) { erreur(2, 'Le vélo-ski se loue au maximum 2 jours. Changez la durée ou l’activité de la personne concernée.'); return; }
+    erreur(2); allerA(3);
+  });
+  $$('[data-retour]').forEach(function (b) { b.addEventListener('click', function () { allerA(+b.dataset.retour); }); });
+
+  /* Étape 1 */
+  var champDate = $('#r-date');
+  champDate.min = isoLocal(new Date());
+  champDate.value = etat.date;
+  champDate.addEventListener('change', function () { etat.date = champDate.value; erreur(1); rendRappel(); rendRecap(); });
+  $('#r-duree').addEventListener('change', function (e) { if (e.target.name === 'duree') { etat.duree = e.target.value; rendRappel(); rendRecap(); } });
+
+  /* Étape 2 : saisie */
+  var conteneur = $('#skieurs');
+  function skieurDe(el) { var a = el.closest('.skieur'); return a && etat.skieurs.find(function (s) { return s.id === +a.dataset.id; }); }
+  conteneur.addEventListener('input', function (e) {
+    var s = skieurDe(e.target); if (!s || !e.target.dataset.champ) return;
+    s[e.target.dataset.champ] = e.target.value;
+    if (e.target.dataset.champ === 'prenom') {
+      var h = e.target.closest('.skieur').querySelector('h4');
+      h.textContent = 'Personne ' + (etat.skieurs.indexOf(s) + 1) + (s.prenom ? ' : ' + s.prenom : '');
+    }
+    rendRecap();
+  });
+  conteneur.addEventListener('change', function (e) {
+    var s = skieurDe(e.target); if (!s) return;
+    var t = e.target, nom = t.name || '', structure = false;
+    if (t.dataset.option) { s[t.dataset.option] = t.checked; }
+    else if (/-cat$/.test(nom)) { s.cat = t.value; s.gamme = t.value === 'enfant' ? 'junior' : 'argent'; if (t.value === 'enfant' && s.activite === 'veloski') s.activite = 'ski'; structure = true; }
+    else if (/-act$/.test(nom)) { s.activite = t.value; s.formule = 'pack'; structure = true; }
+    else if (/-for$/.test(nom)) { s.formule = t.value; if (t.value === 'chaussures' && s.gamme === 'competition') s.gamme = 'junior'; structure = true; }
+    else if (/-gam$/.test(nom)) { s.gamme = t.value; }
+    else if (/-bot$/.test(nom)) { s.bottes = t.value; }
+    if (structure) {
+      var focus = t.name + '|' + t.value;
+      rendSkieurs();
+      var el = $('input[name="' + focus.split('|')[0] + '"][value="' + focus.split('|')[1] + '"]');
+      if (el) el.focus();
+    } else majSousTotaux();
+    erreur(2);
+    rendRecap();
+  });
+  conteneur.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-retirer]'); if (!b) return;
+    etat.skieurs = etat.skieurs.filter(function (s) { return s.id !== +b.dataset.retirer; });
+    rendSkieurs(); rendRecap();
+  });
+  $('#ajouter-skieur').addEventListener('click', function () {
+    etat.skieurs.push(nouveauSkieur('adulte'));
+    rendSkieurs(); rendRecap();
+    var der = $$('.skieur').pop(); if (der) { der.scrollIntoView({ behavior: 'smooth', block: 'center' }); der.querySelector('input').focus({ preventScroll: true }); }
+  });
+
+  /* Étape 3 : envoi (simulé) */
+  $('#form-contact').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var champs = ['c-prenom', 'c-nom', 'c-email', 'c-tel'], vide = champs.filter(function (id) { return !$('#' + id).value.trim(); });
+    if (vide.length) { erreur(3, 'Renseignez votre prénom, votre nom, votre e-mail et votre téléphone.'); $('#' + vide[0]).focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('#c-email').value.trim())) { erreur(3, 'Cette adresse e-mail ne semble pas valide. Vérifiez-la.'); $('#c-email').focus(); return; }
+    if (!$('#c-cgl').checked) { erreur(3, 'Cochez la case pour accepter les conditions générales de location.'); $('#c-cgl').focus(); return; }
+    erreur(3);
+    var c = calcul(), num = 'LNG-' + String(Math.floor(10000 + Math.random() * 89999));
+    var prenom = $('#c-prenom').value.trim();
+    $('#etape-4').innerHTML =
+      '<div class="coche" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>' +
+      '<h3>C’est réservé, ' + echappe(prenom) + ' !</h3>' +
+      '<p>Votre matériel sera prêt au magasin, ' + echappe(texteDates().charAt(0).toLowerCase() + texteDates().slice(1)) + '.</p>' +
+      '<div class="numero">' + num + '</div>' +
+      '<p class="bandeau-demo">Démonstration : cette réservation n’a pas été envoyée au magasin.</p>' +
+      '<p><strong>' + euros(c.total) + '</strong> à régler au magasin, pour ' + etat.skieurs.length + ' personne' + (etat.skieurs.length > 1 ? 's' : '') + '. Retrait : ' + echappe($('#c-retrait').value.toLowerCase()) + '.</p>' +
+      '<div class="liste-prevoir"><h4>À prévoir le jour du retrait</h4><ul><li>Votre numéro de réservation</li><li>Une carte bancaire pour l’empreinte de caution, ou une pièce d’identité</li><li>Des chaussettes de ski, pour l’essayage des chaussures</li></ul></div>' +
+      '<button type="button" class="btn btn-ligne" id="nouvelle-resa">Faire une autre réservation</button>';
+    allerA(4);
+    $('#nouvelle-resa').addEventListener('click', function () {
+      etat.skieurs = [nouveauSkieur('adulte')];
+      $('#form-contact').reset();
+      allerA(1);
+    });
+  });
+
+  /* ================= Accès rapide (accueil) ================= */
+  var arDate = $('#ar-date');
+  arDate.min = isoLocal(new Date());
+  arDate.value = etat.date;
+  $('#acces-rapide').addEventListener('submit', function (e) {
+    e.preventDefault();
+    etat.date = arDate.value || etat.date;
+    etat.duree = $('#ar-duree').value;
+    var nb = +$('#ar-nb').value;
+    while (etat.skieurs.length < nb) etat.skieurs.push(nouveauSkieur('adulte'));
+    if (etat.skieurs.length > nb) etat.skieurs = etat.skieurs.slice(0, nb);
+    champDate.value = etat.date; rendDuree(); rendRappel();
+    allerA(2);
+    window.scrollTo({ top: $('#reserver').getBoundingClientRect().top + window.scrollY - 10, behavior: 'smooth' });
+  });
+
+  /* ================= Packs (vitrine) ================= */
+  function rendPacks(type) {
+    var html;
+    if (type === 'snow') {
+      html = [['enfant', 'Snowboard enfant', 'Planche et boots adaptées aux plus jeunes riders.'], ['adulte', 'Snowboard adulte', 'Planche et boots, pour débuter comme pour progresser.']].map(function (p) {
+        var t = T.snowPack[p[0]];
+        return '<article class="carte-pack"><span class="piste"><i class="neutre"></i>Planche + boots</span><h3>' + p[1] + '</h3><p class="pour">' + p[2] + '</p><div class="prix"><strong>' + euros(t[1]) + '</strong><span>la journée<br>' + euros(t[6]) + ' les 6 jours</span></div><a href="#reserver" class="btn btn-ligne" data-ajout="snow-' + p[0] + '">Réserver ce pack</a></article>';
+      }).join('');
+    } else {
+      html = GAMMES[type].map(function (g) {
+        var t = T.pack[g.id];
+        return '<article class="carte-pack">' + (g.piste ? '<span class="piste"><i class="' + g.piste + '"></i>' + g.niveau + '</span>' : '<span class="piste"><i class="neutre"></i>Enfant</span>') +
+          '<h3>' + g.nom + '</h3><p class="pour">' + g.detail + '</p><div class="prix"><strong>' + euros(t[1]) + '</strong><span>la journée<br>' + euros(t[6]) + ' les 6 jours</span></div><a href="#reserver" class="btn btn-ligne" data-ajout="ski-' + type + '-' + g.id + '">Réserver ce pack</a></article>';
+      }).join('');
+    }
+    $('#grille-packs').innerHTML = html;
+  }
+  $$('.packs .onglets button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      $$('.packs .onglets button').forEach(function (x) { x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
+      rendPacks(b.dataset.onglet);
+    });
+  });
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-ajout]'); if (!a) return;
+    var v = a.dataset.ajout.split('-'), preset;
+    if (v[0] === 'ski') preset = nouveauSkieur(v[1], { activite: 'ski', formule: 'pack', gamme: v[2] });
+    else if (v[0] === 'snow') preset = nouveauSkieur(v[1], { activite: 'snow', formule: 'pack' });
+    else preset = nouveauSkieur('adulte', { activite: 'veloski' });
+    var premier = etat.skieurs[0];
+    var intact = etat.skieurs.length === 1 && !premier.prenom && premier.activite === 'ski' && premier.formule === 'pack' && premier.gamme === 'argent' && premier.cat === 'adulte';
+    if (intact || etat.etape === 4) { etat.skieurs = [preset]; $('#form-contact').reset(); } else etat.skieurs.push(preset);
+    if (v[0] === 'veloski' && duree().idx > 2) { etat.duree = '1'; rendDuree(); rendRappel(); }
+    allerA(2);
+  });
+
+  /* ================= Grille de tarifs ================= */
+  var ONGLETS_TARIFS = [
+    { id: 'packs', nom: 'Packs ski', lignes: function () { return GAMMES.enfant.concat(GAMMES.adulte).map(function (g) { return [g.nom + (GAMMES.enfant.indexOf(g) > -1 ? ' (enfant)' : ''), g.detail, T.pack[g.id]]; }); } },
+    { id: 'snow', nom: 'Snowboard', lignes: function () { return [['Pack enfant', 'Planche + boots', T.snowPack.enfant], ['Pack adulte', 'Planche + boots', T.snowPack.adulte], ['Planche seule enfant', '', T.snow.enfant], ['Planche seule adulte', '', T.snow.adulte]]; } },
+    { id: 'skis', nom: 'Skis seuls', lignes: function () { return [['Baby', '80 à 110 cm', T.skis.baby], ['Junior', '110 à 150 cm', T.skis.junior], ['Compétition', '110 à 160 cm', T.skis.competition], ['Bronze ou mini-skis', '', T.skis.bronze], ['Argent', '', T.skis.argent], ['Or', '', T.skis.or], ['Diamant', '', T.skis.diamant]]; } },
+    { id: 'chaussures', nom: 'Chaussures', lignes: function () { return [['Chaussures baby', '', T.chaussures.baby], ['Chaussures junior', '', T.chaussures.junior], ['Chaussures adulte', '', T.chaussures.adulte]]; } },
+    { id: 'divers', nom: 'Divers', lignes: function () { return [['Bâtons', '', T.batons], ['Casque', 'Pas de casque seul le week-end et pendant les vacances', T.casque], ['Raquettes', '', T.raquettes], ['Luge', '', T.luge]]; } },
+    { id: 'veloski', nom: 'Vélo-ski', lignes: function () { return [['Vélo-ski tout suspendu', 'Sans bottes', T.veloski.sans], ['Vélo-ski tout suspendu', 'Avec bottes', T.veloski.avec]]; } }
+  ];
+  function rendTarifs(id) {
+    var o = ONGLETS_TARIFS.find(function (x) { return x.id === id; });
+    var cols = id === 'veloski' ? ['½ j', '1 j', '2 j'] : ['½ j', '1 j', '2 j', '3 j', '4 j', '5 j', '6 j'];
+    var h = '<thead><tr><th scope="col">' + o.nom + '</th>' + cols.map(function (c) { return '<th scope="col">' + c + '</th>'; }).join('') + '</tr></thead><tbody>';
+    o.lignes().forEach(function (l) {
+      h += '<tr><td><strong>' + l[0] + '</strong>' + (l[1] ? '<small>' + l[1] + '</small>' : '') + '</td>' + l[2].map(function (p) { return '<td>' + euros(p) + '</td>'; }).join('') + '</tr>';
+    });
+    $('#table-tarifs').innerHTML = h + '</tbody>';
+  }
+  $('#onglets-tarifs').innerHTML = ONGLETS_TARIFS.map(function (o, k) { return '<button type="button" role="tab" aria-selected="' + (k === 0) + '" data-tarif="' + o.id + '">' + o.nom + '</button>'; }).join('');
+  $('#onglets-tarifs').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    $$('#onglets-tarifs button').forEach(function (x) { x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
+    rendTarifs(b.dataset.tarif);
+  });
+
+  /* ================= En-tête, menu, CGL ================= */
+  var entete = $('#entete');
+  function majEntete() { entete.classList.toggle('defile', window.scrollY > 40); }
+  window.addEventListener('scroll', majEntete, { passive: true }); majEntete();
+  var bm = $('#bouton-menu'), nav = $('#nav');
+  bm.addEventListener('click', function () {
+    var o = nav.classList.toggle('ouvert');
+    document.body.classList.toggle('menu-ouvert', o);
+    bm.setAttribute('aria-expanded', o); bm.textContent = o ? 'Fermer' : 'Menu';
+  });
+  $$('#nav a').forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('ouvert'); document.body.classList.remove('menu-ouvert'); bm.setAttribute('aria-expanded', 'false'); bm.textContent = 'Menu'; }); });
+  $$('[data-cgl]').forEach(function (ul) { ul.innerHTML = CGL.map(function (c) { return '<li>' + c + '</li>'; }).join(''); });
+
+  /* ================= Démarrage ================= */
+  rendDuree(); rendRappel(); rendPacks('adulte'); rendTarifs('packs'); rendRecap();
+})();
+</script>
+</body>
+</html>
